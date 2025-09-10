@@ -21,12 +21,19 @@ body {
   font-size: 1.2em;
 }
 
-/* Navbar */
+
 .navbar {
   background: #222;
   padding: 15px;
-  position: relative;
+  position: fixed;   /* fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
 }
+
 .menu-btn {
   background: none;
   border: none;
