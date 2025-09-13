@@ -1,76 +1,99 @@
+/* Reset */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
 }
 
-/* Top Title */
-.main-header {
-  background: linear-gradient(90deg, #ff512f, #dd2476);
-  text-align: center;
-  padding: 30px;
-}
-.main-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  font-weight: bold;
-}
-.main-header .tagline {
-  margin-top: 10px;
-  font-style: italic;
-  font-size: 1.2em;
-}
-
-
+/* Navbar */
 .navbar {
   background: #222;
-  padding: 15px;
-  position: fixed;   /* fixed position */
+  padding: 0px 0px;   /* 👈 right-left space balanced */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.navbar .brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
 }
 
 .menu-btn {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 24px;   /* thoda bada click area */
   cursor: pointer;
+  z-index: 2100;
+  margin-right: 0;   /* 👈 ab corner ke andar aligned */
 }
+
+/* Header (landing section) */
+.main-header {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  text-align: center;
+  height: 100vh;  /* full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-top: 60px; /* navbar ke liye jagah */
+}
+.main-header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.tagline {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+/* Drawer Menu */
 .nav-links {
   list-style: none;
-  padding: 0;
   margin: 0;
-  display: none;
-  flex-direction: column;
+  padding: 20px;
   background: #333;
-  position: absolute;
-  top: 50px;
-  left: 15px;
-  border-radius: 5px;
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: -250px; /* hidden initially */
+  height: 100%;
+  width: 250px;
+  flex-direction: column;
+  gap: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 2000;
 }
+
 .nav-links.show {
-  display: flex;
+  right: 0;
 }
+
 .nav-links li {
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
+
 .nav-links li a {
   text-decoration: none;
   color: white;
   padding: 10px 15px;
   display: block;
 }
+
 .nav-links li a:hover {
   background: #555;
 }
 
-/* Sections */
+/* Sections loaded dynamically */
 .section {
   padding: 60px 20px;
   text-align: center;
@@ -98,4 +121,5 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.9em;
+  color: #fff;
 }
