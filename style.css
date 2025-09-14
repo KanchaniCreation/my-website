@@ -2,14 +2,14 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f9; /* fallback */
   color: #fff;
-  background: #f4f4f9; /* fallback background */
 }
 
 /* Navbar */
 .navbar {
   background: #222;
-  padding: 15px 20px;   /* balanced spacing */
+  padding: 15px 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -26,6 +26,12 @@ body {
   color: #fff;
 }
 
+.logo {
+  width: 30px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
 .menu-btn {
   background: none;
   border: none;
@@ -33,30 +39,57 @@ body {
   font-size: 24px;
   cursor: pointer;
   z-index: 2100;
-  margin-right: 0;
+  margin-right: 15px; /* 👈 thoda left shift */
 }
 
-/* Compact Landing Header */
+/* Hero / Landing Header */
 .main-header {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh; /* full screen */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("bags-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px 50px; /* 👈 normal section height */
-  color: white;
-  margin-top: 60px; /* navbar ke neeche jagah */
+  color: #fff;
 }
 
-.main-header h1 {
-  font-size: 2em;   /* 👈 compact size */
-  font-weight: bold;
-  margin: 0;
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: fadeUp 1s ease forwards;
 }
 
 .tagline {
-  margin-top: 8px;
-  font-size: 1.1em;
-  font-style: italic;
-  color: #f0f0f0;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  margin: 8px;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #ff9800;
+  color: #fff;
+}
+.btn-primary:hover { background: #e68900; }
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-secondary:hover { background: #fff; color: #000; }
 
 /* Drawer Menu */
 .nav-links {
@@ -66,7 +99,7 @@ body {
   background: #333;
   position: fixed;
   top: 0;
-  right: -250px; /* hidden initially */
+  right: -250px;
   height: 100%;
   width: 250px;
   flex-direction: column;
@@ -75,9 +108,7 @@ body {
   z-index: 2000;
 }
 
-.nav-links.show {
-  right: 0;
-}
+.nav-links.show { right: 0; }
 
 .nav-links li {
   border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -90,12 +121,9 @@ body {
   display: block;
   transition: background 0.2s ease;
 }
+.nav-links li a:hover { background: #555; }
 
-.nav-links li a:hover {
-  background: #555;
-}
-
-/* Sections loaded dynamically */
+/* Dynamic Sections */
 .section {
   padding: 60px 20px;
   text-align: center;
@@ -126,15 +154,21 @@ footer {
   color: #fff;
 }
 
-/* ============================= */
-/* Login Popup Styling           */
-/* ============================= */
+footer .socials img {
+  width: 25px;
+  margin: 0 8px;
+  filter: invert(1);
+  transition: 0.3s;
+}
+footer .socials img:hover {
+  transform: scale(1.2);
+}
 
-/* Background overlay */
+/* Login Popup */
 .popup {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
-  z-index: 3000; /* navbar se upar dikhne ke liye */
+  z-index: 3000;
   left: 0;
   top: 0;
   width: 100%;
@@ -144,7 +178,6 @@ footer {
   align-items: center;
 }
 
-/* Popup content box */
 .popup-content {
   background: #fff;
   padding: 20px;
@@ -153,7 +186,7 @@ footer {
   text-align: center;
   position: relative;
   animation: popupAnim 0.3s ease-in-out;
-  color: #222; /* form text visible rahe */
+  color: #222;
 }
 
 @keyframes popupAnim {
@@ -161,7 +194,6 @@ footer {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Close (X) button */
 .popup .close {
   position: absolute;
   right: 15px;
@@ -172,7 +204,6 @@ footer {
   color: #333;
 }
 
-/* Form inputs */
 .popup-content input {
   width: 90%;
   padding: 10px;
@@ -181,7 +212,6 @@ footer {
   border-radius: 5px;
 }
 
-/* Login button */
 .popup-content button {
   width: 100%;
   padding: 10px;
@@ -192,7 +222,16 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
+.popup-content button:hover { background: #005fcc; }
 
-.popup-content button:hover {
-  background: #005fcc;
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-overlay h1 { font-size: 2rem; }
+  .tagline { font-size: 1rem; }
 }

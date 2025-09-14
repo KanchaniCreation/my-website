@@ -9,7 +9,9 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="brand">👜 SNG.Bags</div>
+    <div class="brand">
+      <img src="logo.png" alt="SNG Bags Logo" class="logo"> SNG.Bags
+    </div>
     <button class="menu-btn" id="menuBtn">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#" data-section="about">About</a></li>
@@ -17,18 +19,22 @@
       <li><a href="#" data-section="journey">Journey</a></li>
       <li><a href="#" data-section="products">Products</a></li>
       <li><a href="#" data-section="contact">Contact</a></li>
-      <li><a href="#" id="loginLink">Login</a></li> <!-- 👈 Naya login link -->
+      <li><a href="#" id="loginLink">Login</a></li>
     </ul>
   </nav>
 
-  <!-- Landing Header -->
-  <main id="content">
-    <header class="main-header">
-      <h1>🌈 Shri Nath Ji Bag Industries 🌈</h1>
-      <p class="tagline">Quality Bags Since 1997</p>
-    </header>
+  <!-- Landing Header / Hero Section -->
+  <header class="main-header">
+    <div class="hero-overlay">
+      <h1>Shri Nath Ji Bag Industries</h1>
+      <p class="tagline">Crafting Quality Bags Since 1997</p>
+      <a href="#" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-secondary">Contact Us</a>
+    </div>
+  </header>
 
-    <!-- Dynamic content will load here -->
+  <!-- Dynamic content will load here -->
+  <main id="content">
     <div id="dynamic-section"></div>
   </main>
 
@@ -48,6 +54,11 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Shri Nath Ji Bag Industries. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="#"><img src="fb.png" alt="Facebook"></a>
+      <a href="#"><img src="insta.png" alt="Instagram"></a>
+      <a href="#"><img src="whatsapp.png" alt="WhatsApp"></a>
+    </div>
   </footer>
 
   <!-- Script -->
