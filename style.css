@@ -3,12 +3,13 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
+  background: #f4f4f9; /* fallback background */
 }
 
 /* Navbar */
 .navbar {
   background: #222;
-  padding: 0px 0px;   /* 👈 right-left space balanced */
+  padding: 15px 20px;   /* balanced spacing */
   position: fixed;
   top: 0;
   left: 0;
@@ -29,32 +30,32 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 24px;   /* thoda bada click area */
+  font-size: 24px;
   cursor: pointer;
   z-index: 2100;
-  margin-right: 0;   /* 👈 ab corner ke andar aligned */
+  margin-right: 0;
 }
 
-/* Header (landing section) */
+/* Compact Landing Header */
 .main-header {
-  background: linear-gradient(90deg, #ff512f, #dd2476);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   text-align: center;
-  height: 100vh;  /* full screen height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 100px 20px 50px; /* 👈 normal section height */
   color: white;
-  padding-top: 60px; /* navbar ke liye jagah */
+  margin-top: 60px; /* navbar ke neeche jagah */
 }
+
 .main-header h1 {
-  font-size: 2.5em;
+  font-size: 2em;   /* 👈 compact size */
   font-weight: bold;
+  margin: 0;
 }
+
 .tagline {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 1.1em;
   font-style: italic;
+  color: #f0f0f0;
 }
 
 /* Drawer Menu */
@@ -87,6 +88,7 @@ body {
   color: white;
   padding: 10px 15px;
   display: block;
+  transition: background 0.2s ease;
 }
 
 .nav-links li a:hover {
@@ -122,4 +124,75 @@ footer {
   padding: 20px;
   font-size: 0.9em;
   color: #fff;
+}
+
+/* ============================= */
+/* Login Popup Styling           */
+/* ============================= */
+
+/* Background overlay */
+.popup {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 3000; /* navbar se upar dikhne ke liye */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup content box */
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  animation: popupAnim 0.3s ease-in-out;
+  color: #222; /* form text visible rahe */
+}
+
+@keyframes popupAnim {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Close (X) button */
+.popup .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form inputs */
+.popup-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Login button */
+.popup-content button {
+  width: 100%;
+  padding: 10px;
+  background: #0077ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background: #005fcc;
 }

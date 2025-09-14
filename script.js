@@ -54,3 +54,29 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     navLinks.classList.remove("show"); // menu close
   });
 });
+
+// ==========================
+// Login Popup Functionality
+// ==========================
+const loginLink = document.getElementById("loginLink");
+const popup = document.getElementById("loginPopup");
+const closeBtn = document.querySelector(".popup .close");
+
+// Jab "Login" pe click ho → popup open
+loginLink.addEventListener("click", function(e) {
+  e.preventDefault();
+  popup.style.display = "flex";
+  navLinks.classList.remove("show"); // menu close after click
+});
+
+// Jab "X" pe click ho → popup close
+closeBtn.addEventListener("click", function() {
+  popup.style.display = "none";
+});
+
+// Agar user background pe click kare → popup close
+window.addEventListener("click", function(e) {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
