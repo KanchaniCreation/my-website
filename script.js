@@ -2,6 +2,7 @@
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 const dynamicSection = document.getElementById("dynamic-section");
+const heroSection = document.querySelector(".main-header");
 
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("show");
@@ -34,7 +35,7 @@ const sections = {
     </section>
   `,
   contact: `
-    <section class="section contact">
+    <section class="section contact" id="contact">
       <h2>Contact Us</h2>
       <p>Email: info@shrjnathbags.com</p>
       <p>Phone: +91-XXXXXXXXXX</p>
@@ -43,15 +44,29 @@ const sections = {
   `
 };
 
-// Drawer menu click → content replace
+// Drawer menu click → hero hide + section show
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
     const section = e.target.getAttribute("data-section");
+
     if (sections[section]) {
+      // Hero hide
+      heroSection.style.display = "none";
+      // Section load
       dynamicSection.innerHTML = sections[section];
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    navLinks.classList.remove("show"); // menu close
+
+    // Special case: Home link
+    if (e.target.id === "homeLink") {
+      heroSection.style.display = "flex";
+      dynamicSection.innerHTML = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    navLinks.classList.remove("show"); // close menu
   });
 });
 
@@ -62,19 +77,19 @@ const loginLink = document.getElementById("loginLink");
 const popup = document.getElementById("loginPopup");
 const closeBtn = document.querySelector(".popup .close");
 
-// Jab "Login" pe click ho → popup open
+// Login pe click → popup open
 loginLink.addEventListener("click", function(e) {
   e.preventDefault();
   popup.style.display = "flex";
-  navLinks.classList.remove("show"); // menu close after click
+  navLinks.classList.remove("show");
 });
 
-// Jab "X" pe click ho → popup close
+// Close (X) pe click → popup close
 closeBtn.addEventListener("click", function() {
   popup.style.display = "none";
 });
 
-// Agar user background pe click kare → popup close
+// Background click → popup close
 window.addEventListener("click", function(e) {
   if (e.target === popup) {
     popup.style.display = "none";
