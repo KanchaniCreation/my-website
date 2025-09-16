@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f4f9; /* fallback */
+  background: #f4f4f9;
   color: #fff;
 }
 
@@ -19,19 +19,20 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
+.navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  background: #111;
+}
 .navbar .brand {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
 }
-
 .logo {
   width: 30px;
   vertical-align: middle;
   margin-right: 8px;
 }
-
 .menu-btn {
   background: none;
   border: none;
@@ -39,12 +40,12 @@ body {
   font-size: 24px;
   cursor: pointer;
   z-index: 2100;
-  margin-right: 15px; /* 👈 thoda left shift */
+  margin-right: 15px;
 }
 
-/* Hero / Landing Header */
+/* Hero */
 .main-header {
-  height: 100vh; /* full screen */
+  height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url("bags-bg.jpg") no-repeat center center/cover;
   display: flex;
@@ -53,13 +54,12 @@ body {
   text-align: center;
   color: #fff;
 }
-
 .hero-overlay h1 {
   font-size: 3rem;
   margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
   animation: fadeUp 1s ease forwards;
 }
-
 .tagline {
   font-size: 1.3rem;
   margin-bottom: 25px;
@@ -77,13 +77,11 @@ body {
   text-decoration: none;
   transition: 0.3s;
 }
-
 .btn-primary {
   background: #ff9800;
   color: #fff;
 }
 .btn-primary:hover { background: #e68900; }
-
 .btn-secondary {
   background: transparent;
   border: 2px solid #fff;
@@ -95,7 +93,7 @@ body {
 .nav-links {
   list-style: none;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   background: #333;
   position: fixed;
   top: 0;
@@ -107,13 +105,8 @@ body {
   transition: right 0.3s ease-in-out;
   z-index: 2000;
 }
-
 .nav-links.show { right: 0; }
-
-.nav-links li {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
+.nav-links li { border-bottom: 1px solid rgba(255,255,255,0.2); }
 .nav-links li a {
   text-decoration: none;
   color: white;
@@ -123,27 +116,80 @@ body {
 }
 .nav-links li a:hover { background: #555; }
 
-/* Dynamic Sections */
+/* Sections - Cream & Brown */
 .section {
   padding: 60px 20px;
   text-align: center;
+  background: #fdf6e3; /* cream */
+  color: #3e2723; /* brown */
 }
-.about {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+.section h2 {
+  color: #5d4037;
+  margin-bottom: 20px;
 }
-.team {
-  background: linear-gradient(135deg, #f7971e, #ffd200);
-  color: #222;
+.section p {
+  color: #4e342e;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
 }
-.journey {
-  background: linear-gradient(135deg, #43cea2, #185a9d);
+
+/* Content box */
+.section .content-box {
+  background: #fffaf0;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: auto;
+  max-width: 850px;
 }
-.products {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
-}
+
+/* Contact */
 .contact {
-  background: linear-gradient(135deg, #11998e, #38ef7d);
+  background: linear-gradient(135deg, #d7ccc8, #a1887f); /* brownish cream */
+  padding-bottom: 80px;
 }
+
+/* Contact Form */
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.contact-form button {
+  padding: 12px;
+  background: #795548;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-form button:hover { background: #5d4037; }
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.whatsapp-btn:hover { background: #1ebd58; }
 
 /* Footer */
 footer {
@@ -152,32 +198,28 @@ footer {
   padding: 20px;
   font-size: 0.9em;
   color: #fff;
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #795548, #ff9800) 1;
 }
-
 footer .socials img {
   width: 25px;
   margin: 0 8px;
   filter: invert(1);
   transition: 0.3s;
 }
-footer .socials img:hover {
-  transform: scale(1.2);
-}
+footer .socials img:hover { transform: scale(1.2); }
 
-/* Login Popup */
+/* Popup */
 .popup {
   display: none;
   position: fixed;
   z-index: 3000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
 }
-
 .popup-content {
   background: #fff;
   padding: 20px;
@@ -188,22 +230,18 @@ footer .socials img:hover {
   animation: popupAnim 0.3s ease-in-out;
   color: #222;
 }
-
 @keyframes popupAnim {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
-
 .popup .close {
   position: absolute;
-  right: 15px;
-  top: 10px;
+  right: 15px; top: 10px;
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
   color: #333;
 }
-
 .popup-content input {
   width: 90%;
   padding: 10px;
@@ -211,18 +249,17 @@ footer .socials img:hover {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .popup-content button {
   width: 100%;
   padding: 10px;
-  background: #0077ff;
+  background: #795548;
   border: none;
   color: white;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
 }
-.popup-content button:hover { background: #005fcc; }
+.popup-content button:hover { background: #5d4037; }
 
 /* Animations */
 @keyframes fadeUp {
@@ -230,8 +267,45 @@ footer .socials img:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ============================= */
+/* Products Carousel */
+/* ============================= */
+.products .carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 30px auto 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.products .carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.products .carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+.products .carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(121,85,72,0.8); /* brown */
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.products .carousel .prev { left: 10px; }
+.products .carousel .next { right: 10px; }
+.products .carousel button:hover { background: #5d4037; }
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-overlay h1 { font-size: 2rem; }
   .tagline { font-size: 1rem; }
+  .contact-form { width: 90%; }
 }
