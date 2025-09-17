@@ -50,7 +50,6 @@ const sections = {
             <img src="assets/bag2.jpg" alt="Bag 2">
             <img src="assets/bag3.jpg" alt="Bag 3">
             <img src="assets/bag4.jpg" alt="Bag 4">
-            <img src="assets/bag5.jpg" alt="Bag 5">
           </div>
           <button class="next">&#10095;</button>
         </div>
